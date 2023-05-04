@@ -407,7 +407,7 @@ func newBuildCreateValidatorMsg(clientCtx client.Context, txf tx.Factory, fs *fl
 		nodeID, _ := fs.GetString(FlagNodeID)
 
 		if nodeID != "" && ip != "" {
-			txf = txf.WithMemo(fmt.Sprintf("%s@%s:%d", nodeID, ip, port))
+			txf = txf.WithMemo(fmt.Sprintf("%s@%s:%d", nodeID, ip, port.Int64()))
 		}
 	}
 
@@ -621,7 +621,7 @@ func BuildCreateValidatorMsg(clientCtx client.Context, config TxCreateValidatorC
 		nodeID := config.NodeID
 
 		if nodeID != "" && ip != "" {
-			txBldr = txBldr.WithMemo(fmt.Sprintf("%s@%s:%d", nodeID, ip, port))
+			txBldr = txBldr.WithMemo(fmt.Sprintf("%s@%s:%d", nodeID, ip, port.Int64()))
 		}
 	}
 
